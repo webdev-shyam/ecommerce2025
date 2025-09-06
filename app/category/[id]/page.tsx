@@ -46,6 +46,12 @@ const categories = [
   },
 ];
 
+export async function generateStaticParams() {
+  return categories.map((category) => ({
+    id: category.id.toString(),
+  }));
+}
+
 export default function CategoryPage() {
   const params = useParams();
   const categoryId = parseInt(params.id as string);
